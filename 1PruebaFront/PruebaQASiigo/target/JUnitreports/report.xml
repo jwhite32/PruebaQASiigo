@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="15.352" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Creacion de cliente" name="Realizar inicio de sesion exitoso - #1.1" time="15.167">
+<failure type="org.openqa.selenium.NoSuchElementException" message="Unable to find element with locator By.id: username-input
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: driver.version: RemoteWebDriver">
+<![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.id: username-input
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy21.sendKeys(Unknown Source)
+	at pages.loginQASiigoPage.ingresarUsuario(loginQASiigoPage.java:30)
+	at StepDefinition.loginQASiigo_Step.diligenciar_campos_usuario_y_contrasena(loginQASiigo_Step.java:42)
+	at ✽.Diligenciar campos retoautomationsiigo@yopmail.com y T4b4ck0ff1c3P455w0rd658*(file:///D:/Tools/WorkSpace/PruebaQASiigo/src/test/resources/Features/crearCliente.feature:5)
+]]>
+</failure>
+<system-out><![CDATA[
+Given Ingresar a la URL QA Siigo............................................passed
+And Diligenciar campos retoautomationsiigo@yopmail.com y T4b4ck0ff1c3P455w0rd658*.failed
+When Seleccionar boton Ingresar.............................................skipped
+Then Visualizar Home QA Siigo...............................................skipped
+]]></system-out>
+</testcase>
+</testsuite>

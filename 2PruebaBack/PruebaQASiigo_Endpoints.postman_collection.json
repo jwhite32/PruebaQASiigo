@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "ffd1394f-6037-477d-8301-d0bb28a6a27f",
+		"name": "PruebaQASiigo_Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7615366"
+	},
+	"item": [
+		{
+			"name": "ListarUsuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"// Validación Status\r",
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"//Validación Headers\r",
+							"pm.test(\"Content-Type header is present\", function(){\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"//Validación cookies\r",
+							"pm.test(\"Cookie 'language' is present\", function(){\r",
+							" pm.expect(pm.cookies.has('language')).to.be.true;\r",
+							"});\r",
+							"\r",
+							"// Validacion Response Times\r",
+							"pm.test(\"Response time is less than 1 second \", function(){\r",
+							"pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users?page=2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearUsuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validación Status\r",
+							"pm.test(\"Status code is 201\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(201);\r",
+							"});\r",
+							"\r",
+							"//Validación Headers\r",
+							"pm.test(\"Content-Type header is present\", function(){\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Validacion Response Times\r",
+							"pm.test(\"Response time is less than 1 second\", function(){\r",
+							"pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"//Validación Estructura Response\r",
+							"pm.test(\"Schema is valid\", function(){\r",
+							"    const schema = {\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\":{\r",
+							"            \"name\":{\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"job\":{\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"id\":{\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"createdAt\":{\r",
+							"                \"type\": \"string\"\r",
+							"            }\r",
+							"        },\r",
+							"        required:['name','job','id','createdAt'],\r",
+							"        additionalProperties:false\r",
+							"    }\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"andres\",\r\n    \"job\": \"leader\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validación Status\r",
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"//Validación Headers\r",
+							"pm.test(\"Content-Type header is present\", function(){\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Validacion Response Times\r",
+							"pm.test(\"Response time is less than 1 second\", function(){\r",
+							"pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"//Validación Estructura Response\r",
+							"pm.test(\"Schema is valid\", function(){\r",
+							"    const schema = {\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\":{\r",
+							"            \"name\":{\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"job\":{\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"updatedAt\":{\r",
+							"                \"type\": \"string\"\r",
+							"            }\r",
+							"        },\r",
+							"        required:['name','job','updatedAt'],\r",
+							"        additionalProperties:false\r",
+							"    }\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validación Status\r",
+							"pm.test(\"Status code is 204\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(204);\r",
+							"});\r",
+							"\r",
+							"//Validación Headers\r",
+							"pm.test(\"Content-Type header is present\", function(){\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"// Validacion Response Times\r",
+							"pm.test(\"Response time is less than 1 second\", function(){\r",
+							"pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
